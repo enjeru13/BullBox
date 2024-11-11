@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import nosotros from "/img/nosotros.png";
 import servicios from "/img/servicios.png";
-import QRvzla from "/img/QRvzla.jpg";
+// import QRvzla from "/img/QRvzla.jpg";
 import Mapa from "../components/Mapa";
 
 function Inicio() {
@@ -208,7 +208,7 @@ function Inicio() {
               </div>
             </div>
           </div>
-          <div className="container-fluid h-100 d-flex flex-column justify-content-center align-items-center pt-5">
+          {/* <div className="container-fluid h-100 d-flex flex-column justify-content-center align-items-center pt-5">
             <button
               type="button"
               className="btn btn-warning fw-bold fs-4"
@@ -260,7 +260,7 @@ function Inicio() {
                 <img src={QRvzla} alt="" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
