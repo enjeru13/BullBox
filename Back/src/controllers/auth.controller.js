@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../api/config.js";
 
 export const register = async (req, res) => {
-  const { username, direction, email, cedula, tlf, password } = req.body;
+  const { username, direction, email, tlf, password } = req.body;
   try {
     const userFound = await User.findOne({ email });
     if (userFound) return res.status(400).json([" El email ya esta en uso "]);
@@ -15,7 +15,6 @@ export const register = async (req, res) => {
       username,
       direction,
       email,
-      cedula,
       tlf,
       password: passwordHash,
     });
@@ -56,7 +55,6 @@ export const login = async (req, res) => {
       username: userFound.username,
       direction: userFound.direction,
       email: userFound.email,
-      cedula: userFound.cedula,
       tlf: userFound.tlf,
       createdAt: userFound.createdAt,
       updatedAt: userFound.updatedAt,
