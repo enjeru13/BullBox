@@ -10,7 +10,7 @@ const WeightForm = ({ onWeightAdded, userId }) => {
     e.preventDefault();
     if (weight) {
       try {
-        await axios.post("https://bull-box.vercel.app/api/weightRecords/add", {
+        await axios.post("http://localhost:3000/api/weightRecords/add", {
           userId, // Enviar el ID del usuario autenticado
           weight: Number(weight),
         });

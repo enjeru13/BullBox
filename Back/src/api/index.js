@@ -1,6 +1,8 @@
 import app from "./app.js";
 import { connectDB } from "./db.js";
 
+// Conecta la base de datos
 connectDB();
-app.listen(3000);
-console.log("corriendo en el puerto", 3000);
+
+// Exporta la aplicación para que Vercel la use como una función serverless
+export default app;
