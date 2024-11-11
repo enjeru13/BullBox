@@ -31,7 +31,7 @@ const WeightChart = ({ userId }) => {
   useEffect(() => {
     const fetchWeights = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/weightRecords/user/${userId}`);
+        const response = await axios.get(`https://bull-box.vercel.app/api/weightRecords/user/${userId}`);
         setWeights(response.data);
       } catch (error) {
         console.error("Error al obtener los registros de peso:", error);
