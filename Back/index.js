@@ -1,5 +1,5 @@
-import app from "./app.js";
-import { connectDB } from "./db.js";
+import app from "./src/api/app.js";
+import { connectDB } from "./src/api/db.js";
 
 // Conecta la base de datos
 connectDB();
