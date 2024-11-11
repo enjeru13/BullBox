@@ -1,11 +1,14 @@
 import express from "express";
+import dotenv from "dotenv";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import productRoutes from "./routes/product.routes.js";
+import weightRecordsRoutes from "./routes/weight.routes.js";
 
 const app = express();
+dotenv.config();
 
 app.use(
   cors({
@@ -19,5 +22,6 @@ app.use(cookieParser());
 
 app.use("/api", authRoutes);
 app.use("/api", productRoutes);
+app.use("/api/weightRecords", weightRecordsRoutes);
 
 export default app;

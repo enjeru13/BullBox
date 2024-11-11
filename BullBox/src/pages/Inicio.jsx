@@ -23,7 +23,7 @@ function Inicio() {
           <h5 className="">Triunfar es mas facil de lo que piensas !</h5>
           <hr className="text-warning" />
           <h2 className="fw-bold display-4">
-            ENTRENA <span className="text-warning fw-bold">GRATIS HOY ! </span>{" "}
+            ENTRENA <span className="text-warning fw-bold">GRATIS HOY ! </span>
           </h2>
           <h5 className="">Primera Clase Gratis !</h5>
         </div>
@@ -41,11 +41,10 @@ function Inicio() {
             <span className="fw-bold">LA MEJOR EXPERIENCIA</span>
             <h1 className="text-warning fw-bold display-4">NOSOTROS</h1>
             <p className="justified-text pt-3 fw-bold">
-              {" "}
               Creemos en el poder del movimiento y en el potencial ilimitado de
               cada persona. Nuestro equipo de expertos te guiará en cada paso
               del camino, diseñando planes de entrenamiento personalizados para
-              ayudarte a alcanzar tus metas.{" "}
+              ayudarte a alcanzar tus metas.
             </p>
           </div>
         </div>
@@ -62,7 +61,8 @@ function Inicio() {
               className="text-warning me-2"
               icon={faLocationPin}
             />
-            Barrio Obrero Calle 15 entre Carreras 21 y 22
+            Av. Ferrero Tamayo, detrás del Hotel el Rey, frente al Club de
+            Escalada
           </h3>
         </div>
       </section>
@@ -76,11 +76,10 @@ function Inicio() {
             <span className="fw-bold">LA MEJOR EXPERIENCIA</span>
             <h2 className="text-warning fw-bold display-4">SERVICIOS</h2>
             <p className="justified-text pt-3 fw-bold">
-              {" "}
               ¿Sueñas con un cuerpo más fuerte y saludable?, te ofrecemos todo
               lo que necesitas para alcanzar tus metas. Desde entrenamientos
               personalizados hasta clases grupales dinámicas, te guiaremos paso
-              a paso en tu transformación física y mental.{" "}
+              a paso en tu transformación física y mental.
             </p>
           </div>
           <div className="col-md-4">
@@ -95,8 +94,11 @@ function Inicio() {
             <i className="me-3">
               <FontAwesomeIcon icon={faDumbbell} />
             </i>
-            Clases de{" "}
-            <span className="text-warning fw-bold">Levantamiento de Pesas</span>
+            Clases de
+            <span className="text-warning fw-bold">
+              {" "}
+              Levantamiento de Pesas
+            </span>
           </h2>
         </div>
         <div className="card-body">
@@ -113,8 +115,8 @@ function Inicio() {
             <i className="me-3">
               <FontAwesomeIcon icon={faWeightHanging} />
             </i>
-            Clases de{" "}
-            <span className="text-warning fw-bold">Crosstraining</span>
+            Clases de
+            <span className="text-warning fw-bold"> Crosstraining</span>
           </h2>
         </div>
         <div className="card-body">
@@ -261,7 +263,6 @@ function Inicio() {
           </div>
         </div>
       </section>
-      {/* <Footer /> */}
     </>
   );
 }

@@ -1,21 +1,25 @@
 // components/WeightForm.js
 import { useState } from "react";
+import axios from "axios"; // Asegúrate de tener axios instalado
 
 // eslint-disable-next-line react/prop-types
-const WeightForm = ({ onWeightAdded }) => {
+const WeightForm = ({ onWeightAdded, userId }) => {
   const [weight, setWeight] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (weight) {
-      const currentWeights = JSON.parse(localStorage.getItem("weights")) || [];
-      currentWeights.push({
-        weight: Number(weight),
-        date: new Date().toISOString(),
-      });
-      localStorage.setItem("weights", JSON.stringify(currentWeights));
-      onWeightAdded(); // Llama a la función para refrescar la gráfica
-      setWeight(""); // Reinicia el campo de entrada
+      try {
+        await axios.post("http://localhost:3000/api/weightRecords/add", {
+          userId, // Enviar el ID del usuario autenticado
+          weight: Number(weight),
+        });
+        onWeightAdded(); // Refresca la gráfica después de agregar el peso
+        setWeight(""); // Reinicia el campo de entrada
+      } catch (error) {
+        console.error("Error al enviar el peso al backend:", error);
+        alert("Hubo un error al registrar el peso");
+      }
     }
   };
 

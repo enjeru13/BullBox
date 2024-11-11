@@ -34,12 +34,12 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
+                {/* <Link
                   className="nav-link text-white fs-4 mx-3 fw-bold"
-                  to="/products"
+                  to="/tienda"
                 >
-                  Productos
-                </Link>
+                  Tienda
+                </Link> */}
               </li>
               {isAuthenticated ? (
                 <>

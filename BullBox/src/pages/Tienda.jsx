@@ -1,9 +1,13 @@
-import React from 'react'
 
-export default function Tienda() {
+
+const Tienda = () => {
+
+
   return (
     <div>
-      <h1>la tienda</h1>
+      <h1>Tienda</h1>
     </div>
-  )
-}
+  );
+};
+
+export default Tienda;

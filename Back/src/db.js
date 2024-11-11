@@ -2,11 +2,9 @@ import mongoose from "mongoose";
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://penebola:angeleduardo13@bullbox.gukf6.mongodb.net/"
-    );
-    console.log("la base de datos esta conectada");
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("Base de datos conectada");
   } catch (error) {
-    console.log("no se conecto");
+    console.error("Error de conexión a MongoDB:", error);
   }
 };
