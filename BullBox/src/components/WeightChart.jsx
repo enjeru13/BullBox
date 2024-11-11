@@ -1,6 +1,27 @@
 // components/WeightChart.js
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Registrar las escalas y componentes necesarios
+ChartJS.register(
+  CategoryScale, // Asegúrate de registrar esta escala
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
