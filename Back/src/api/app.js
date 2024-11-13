@@ -12,8 +12,9 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || "https://bull-box.vercel.app/"  // Agrega la URL de tu frontend aquí
+  process.env.FRONTEND_URL || "https://bull-box.vercel.app"  // Agrega la URL de tu frontend aquí
 ];
+console.log(process.env.FRONTEND_URL)
 
 app.use(
   cors({
