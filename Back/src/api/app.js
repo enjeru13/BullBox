@@ -12,13 +12,13 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || "http://localhost:5173/"
+  process.env.FRONTEND_URL || "http://localhost:5173"  // Agrega la URL de tu frontend aquí
 ];
 
 app.use(
   cors({
     origin: allowedOrigins,
-    credentials: true,
+    credentials: true,  // Esto es necesario para enviar cookies o autenticación
   })
 );
 

@@ -35,15 +35,18 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (user) => {
     try {
       const res = await loginRequest(user);
-      console.log(res.data);
+      console.log('Respuesta completa:', res); // Verifica la estructura
+      console.log('Datos:', res.data); // Verifica si `data` está definido
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error) {
-      if (Array.isArray(error.response.data)) {
+      console.error('Error en signIn:', error);
+      if (error.response && Array.isArray(error.response.data)) {
         return setErrors(error.response.data);
       }
-      setErrors([error.response.data.message]);
+      setErrors([error.response?.data?.message || 'Error desconocido']);
     }
+    
   };
 
   const logOut = () => {
@@ -74,17 +77,17 @@ export const AuthProvider = ({ children }) => {
       }
       try {
         const res = await verifyTokenRequest(cookies.token);
+        console.log('Respuesta de verificación:', res);
         if (!res.data) {
           setIsAuthenticated(false);
           setLoading(false);
           return;
         }
-
         setIsAuthenticated(true);
         setUser(res.data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.error('Error en checkLogin:', error);
         setIsAuthenticated(false);
         setUser(null);
         setLoading(false);

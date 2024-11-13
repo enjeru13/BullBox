@@ -27,7 +27,6 @@ export const register = async (req, res) => {
       username: userSaved.username,
       direction: userSaved.direction,
       email: userSaved.email,
-      cedula: userSaved.cedula,
       tlf: userSaved.tlf,
       createdAt: userSaved.createdAt,
       updatedAt: userSaved.updatedAt,
