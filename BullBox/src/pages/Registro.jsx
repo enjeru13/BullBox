@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEnvelope, faPhone, faMapMarkerAlt, faLock } from "@fortawesome/free-solid-svg-icons";
 
 function Registro() {
   const {
@@ -21,90 +23,94 @@ function Registro() {
   });
 
   return (
-    <div className="bg-dark">
-      <div className="vh-100 d-flex align-items-center justify-content-center">
-        <div className="w-100">
-          <div className="col">
+    <div className="bg-image vh-100 d-flex align-items-center justify-content-center">
+      <div className="card bg-dark text-white shadow p-4 rounded" style={{ maxWidth: "400px", width: "100%" }}>
+        {registerErrors.length > 0 && (
+          <div className="mb-3">
             {registerErrors.map((error, i) => (
-              <div className="bg-danger text-center p-2 text-white m-2" key={i}>
+              <div className="alert alert-danger text-center p-2" key={i}>
                 {error}
               </div>
             ))}
-            <form
-              onSubmit={onSubmit}
-              className=" d-flex flex-column align-items-center justify-content-center"
-            >
-              <div className="text-warning text-center m-2">
-                <h2 className="">Registro</h2>
-              </div>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Nombre de usuraio"
-                  {...register("username", { required: true })}
-                />
-                {errors.username && (
-                  <p className="text-danger">El usuario es obligatorio</p>
-                )}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Direccion"
-                  {...register("direction", { required: true })}
-                />
-                {errors.direction && (
-                  <p className="text-danger">La direccion es obligatoria</p>
-                )}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  className="form-control "
-                  placeholder="Email"
-                  {...register("email", { required: true })}
-                />
-                {errors.email && (
-                  <p className="text-danger">El correo el obligatorio</p>
-                )}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Telefono"
-                  {...register("tlf", { required: true })}
-                />
-                {errors.tlf && (
-                  <p className="text-danger">El numero de obligatorio</p>
-                )}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Contraseña"
-                  {...register("password", { required: true })}
-                />
-                {errors.password && (
-                  <p className="text-danger">La contraseña es obligatoria</p>
-                )}
-              </div>
-              <button type="submit" className="m-1 btn btn-warning fw-bold">
-                Registrarse
-              </button>
-              <p className="flex justify-between text-white m-3 ">
-                Ya tiene una cuenta?{" "}
-                <Link to="/login" className="text-info">
-                  {" "}
-                  Inicia Sesion!{" "}
-                </Link>
-              </p>
-            </form>
           </div>
-        </div>
+        )}
+        <h2 className="text-warning text-center mb-4">Registro</h2>
+        <form onSubmit={onSubmit} className="d-flex flex-column">
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Nombre de usuario"
+              {...register("username", { required: true })}
+            />
+          </div>
+          {errors.username && <p className="text-danger">El usuario es obligatorio</p>}
+
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faMapMarkerAlt} />
+            </span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Dirección"
+              {...register("direction", { required: true })}
+            />
+          </div>
+          {errors.direction && <p className="text-danger">La dirección es obligatoria</p>}
+
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </span>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
+          </div>
+          {errors.email && <p className="text-danger">El correo es obligatorio</p>}
+
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faPhone} />
+            </span>
+            <input
+              type="number"
+              className="form-control"
+              placeholder="Teléfono"
+              {...register("tlf", { required: true })}
+            />
+          </div>
+          {errors.tlf && <p className="text-danger">El número es obligatorio</p>}
+
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faLock} />
+            </span>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Contraseña"
+              {...register("password", { required: true })}
+            />
+          </div>
+          {errors.password && <p className="text-danger">La contraseña es obligatoria</p>}
+
+          <button type="submit" className="btn btn-warning fw-bold mt-3">
+            Continuar
+          </button>
+          <p className="mt-4 text-center fw-bold">
+            ¿Ya tienes una cuenta?{" "}
+            <Link to="/login" className="text-info fw-bold">
+              Inicia Sesión
+            </Link>
+          </p>
+        </form>
       </div>
     </div>
   );

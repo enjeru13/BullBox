@@ -7,12 +7,12 @@ function Header() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark border-bottom border-warning p-4 sticky-top">
-        <div className="container-fluid">
+        <div className="container-fluid px-4">
           <a className="navbar-brand text-white fs-1 fw-bold" href="#">
             BULL <span className="text-warning fw-bold">BOX</span>
           </a>
           <button
-            className="navbar-toggler border-2 border-warning"
+            className="navbar-toggler border-2 border-warning custom-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -22,38 +22,38 @@ function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse " id="navbarNav">
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto justify-content-center align-items-center">
               <li className="nav-item">
                 <Link
-                  className="nav-link text-white fs-4 active mx-3 fw-bold"
+                  className="nav-link text-white fs-5 active fw-bold"
                   aria-current="page"
                   to="/"
                 >
                   Inicio
                 </Link>
               </li>
-              <li className="nav-item">
-                {/* <Link
-                  className="nav-link text-white fs-4 mx-3 fw-bold"
+              {/* <li className="nav-item">
+                <Link
+                  className="nav-link text-white fs-5 mx-3 fw-bold"
                   to="/tienda"
                 >
                   Tienda
-                </Link> */}
-              </li>
+                </Link>
+              </li> */}
               {isAuthenticated ? (
                 <>
                   <li className="nav-item">
                     <Link
-                      className="nav-link text-white fs-4 mx-3 fw-bold"
+                      className="nav-link text-white fs-5 mx-3 fw-bold"
                       to="/profile"
                     >
-                      Tu perfil {user.username}{" "}
+                      Tu perfil {user.username}
                     </Link>
                   </li>
                   <li className="nav-item ">
                     <Link
-                      className="nav-link text-white fs-4 mx-3 fw-bold"
+                      className="nav-link text-white fs-5 mx-3 fw-bold"
                       to="/"
                       onClick={() => {
                         logOut();
@@ -65,14 +65,14 @@ function Header() {
                 </>
               ) : (
                 <>
-                  <li className="nav-item">
+                  <button type="button" className="btn btn-warning fw-bold fs-5">
                     <Link
-                      className="nav-link text-white fs-4 mx-3 fw-bold"
+                      className="nav-link text-dark"
                       to="/login"
                     >
                       Inicia Sesión
                     </Link>
-                  </li>
+                  </button>
                 </>
               )}
             </ul>

@@ -7,6 +7,13 @@
   font-style: normal;
 }
 
+/* Header */
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='orange' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
 /* Inicio */
 
 .bg-image {
@@ -52,9 +59,9 @@
   background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
-.bg-card {
-  background: linear-gradient(rgba(0, 0, 0, 0.745), rgb(18, 17, 17));
-}
+/* .bg-card {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(255, 187, 0, 0.865));
+} */
 
 /* Footer */
 

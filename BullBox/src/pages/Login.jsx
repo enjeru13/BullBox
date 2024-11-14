@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const {
@@ -19,64 +21,55 @@ function Login() {
   const onSubmit = handleSubmit(async (values) => {
     signIn(values);
   });
-  return (
-    <div>
-      <div className="bg-dark">
-        <div className="vh-100 d-flex align-items-center justify-content-center">
-          <div className="w-100">
-            <div className="col">
-              {singInErrors.map((error, i) => (
-                <div
-                  className="bg-danger text-center p-2 text-white m-2"
-                  key={i}
-                >
-                  {error}
-                </div>
-              ))}
 
-              <div className="text-warning text-center">
-                <h2 className="">Inicia Sesion</h2>
+  return (
+    <div className="bg-image vh-100 d-flex align-items-center justify-content-center">
+      <div className="card bg-dark text-white shadow p-4 rounded" style={{ maxWidth: "400px", width: "100%" }}>
+        {singInErrors.length > 0 && (
+          <div className="mb-3">
+            {singInErrors.map((error, i) => (
+              <div className="alert alert-danger text-center fw-bold p-2" key={i}>
+                {error}
               </div>
-              <form
-                onSubmit={onSubmit}
-                className="d-flex flex-column align-items-center mt-3"
-              >
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="nombre de usuario"
-                    {...register("username", { required: true })}
-                  />
-                  {errors.username && (
-                    <p className="text-danger">El usuario es obligatorio</p>
-                  )}
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="contraseña"
-                    {...register("password", { required: true })}
-                  />
-                  {errors.password && (
-                    <p className="text-danger">La constraseña es obligatoria</p>
-                  )}
-                </div>
-                <button type="submit" className="m-1 btn btn-warning fw-bold">
-                  Iniciar Sesion
-                </button>
-                <p className="flex justify-between text-white m-3 ">
-                  No tienes una cuenta aun?{" "}
-                  <Link to="/register" className="text-info">
-                    {" "}
-                    Registrate!{" "}
-                  </Link>
-                </p>
-              </form>
-            </div>
+            ))}
           </div>
-        </div>
+        )}
+        <h2 className="text-warning text-center mb-4">Inicia Sesión</h2>
+        <form onSubmit={onSubmit} className="d-flex flex-column">
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Usuario"
+              {...register("username", { required: true })}
+            />
+          </div>
+          {errors.username && <p className="text-danger">El usuario es obligatorio</p>}
+          <div className="input-group mb-3">
+            <span className="input-group-text bg-warning text-dark">
+              <FontAwesomeIcon icon={faLock} />
+            </span>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Contraseña"
+              {...register("password", { required: true })}
+            />
+          </div>
+          {errors.password && <p className="text-danger">La contraseña es obligatoria</p>}
+          <button type="submit" className="btn btn-warning fw-bold mt-3">
+            Continuar
+          </button>
+          <p className="mt-4 fw-bold text-center">
+            ¿No tienes una cuenta?{" "}
+            <Link to="/register" className="text-info fw-bold">
+              Regístrate
+            </Link>
+          </p>
+        </form>
       </div>
     </div>
   );
