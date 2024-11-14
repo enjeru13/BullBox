@@ -12,7 +12,8 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || "https://bull-box.vercel.app"  // Agrega la URL de tu frontend aquí
+  process.env.FRONTEND_URL || "https://bull-box.vercel.app",
+  "http://localhost:5173",  // Agregar la URL de tu frontend local
 ];
 console.log(process.env.FRONTEND_URL)
 
