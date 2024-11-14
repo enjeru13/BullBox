@@ -1,20 +1,48 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import "./Mapa.css";
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { useState } from 'react';
+
+// Tu clave de API de Google Maps
+const apiKey = 'AIzaSyDpXw7shM15OVRyKoaSPxZFe4QmrwkC6Rw';
+
+const containerStyle = {
+  width: '100%',
+  height: '400px',
+};
+
+const center = {
+  lat: 7.7819341,
+  lng: -72.2226881,
+};
 
 const Mapa = () => {
+  const [selected, setSelected] = useState(null);
+
   return (
-    <div className="container-fluid">
-      <MapContainer center={{ lat: "7.7819182", lng: "-72.2228125" }} zoom={16}>
-        <TileLayer
-          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    <LoadScript googleMapsApiKey={apiKey}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={18}
+      >
+        {/* Marcador principal */}
+        <Marker
+          position={center} 
+          onClick={() => setSelected(center)}
         />
-        <Marker position={{ lat: "7.7819182", lng: "-72.2228125" }}>
-          <Popup>Ubicacion de BULL BOX</Popup>
-        </Marker>
-      </MapContainer>
-    </div>
+
+        {/* Ventana de información que se muestra al hacer clic en el marcador */}
+        {selected && (
+          <InfoWindow 
+            position={center}
+            onCloseClick={() => setSelected(null)}
+          >
+            <div>
+              <h3 className='fw-bold text-center'>Bull Box</h3>
+            </div>
+          </InfoWindow>
+        )}
+      </GoogleMap>
+    </LoadScript>
   );
 };
 

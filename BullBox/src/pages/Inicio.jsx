@@ -46,7 +46,7 @@ function Inicio() {
         </div>
         <div>
           <h1 className="text-center pt-3 pb-3 text-warning fw-bold">Nuestra ubicación</h1>
-          <Mapa />
+          <Mapa/>
         </div>
         <div>
           <h3 className="text-center pt-4 fw-bold">

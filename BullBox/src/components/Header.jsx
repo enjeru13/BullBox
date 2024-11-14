@@ -24,7 +24,7 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto justify-content-center align-items-center">
-              <li className="nav-item">
+              <li className="nav-item mx-4">
                 <Link
                   className="nav-link text-white fs-5 active fw-bold"
                   aria-current="page"

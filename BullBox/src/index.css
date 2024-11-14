@@ -73,3 +73,17 @@
   text-align: center; /* centrar texto */
 }
 
+/* Login y Registro */
+
+.bg-image-login {
+  background: linear-gradient(rgba(0, 0, 0, 0.717), rgba(36, 38, 42, 0.745)),
+    url("/img/loginregister.jpg");
+  height: 100vh; /* 100vh = 100% de la altura de la viewport */
+  width: 100vw; /* 100vw = 100% del ancho de la viewport */
+  background-size: cover; /* Hace que la imagen cubra todo el espacio disponible */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
