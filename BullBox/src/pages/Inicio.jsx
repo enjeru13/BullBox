@@ -20,12 +20,12 @@ function Inicio() {
           <h2 className="fw-bold display-4">
             HAZ QUE <span className="text-warning fw-bold">OCURRA</span>
           </h2>
-          <h5>Triunfar es más fácil de lo que piensas!</h5>
+          <h5>¡Triunfar es más fácil de lo que piensas!</h5>
           <hr className="text-warning" />
           <h2 className="fw-bold display-4">
             ENTRENA <span className="text-warning fw-bold">HOY!</span>
           </h2>
-          <h5>Primera Clase Gratis!</h5>
+          <h5>¡Primera Clase Gratis!</h5>
         </div>
       </section>
 
@@ -63,7 +63,7 @@ function Inicio() {
           <div className="col-md-8 my-4 text-center">
             <span className="fw-bold">LA MEJOR EXPERIENCIA</span>
             <h2 className="text-warning fw-bold display-4">SERVICIOS</h2>
-            <p className="pt-3 fw-bold">
+            <p className="pt-3 fw-bold container">
               ¿Sueñas con un cuerpo más fuerte y saludable? Te ofrecemos todo lo que necesitas para alcanzar tus metas. Desde entrenamientos personalizados hasta clases grupales dinámicas, te guiaremos paso a paso en tu transformación física y mental.
             </p>
           </div>
@@ -139,7 +139,7 @@ function Inicio() {
           <span className="fw-bold">LA MEJOR EXPERIENCIA</span>
           <h2 className="text-warning fw-bold display-4">Planes</h2>
         </div>
-        <p className="pt-3 fw-bold">
+        <p className="pt-3 fw-bold container">
           Elige el plan que se adapte a tu estilo de vida y alcanza tus objetivos de forma rápida y segura. Ofrecemos planes personalizados con entrenamiento funcional, cardiovascular y asesoramiento nutricional para optimizar tus resultados. ¡Únete a nuestra comunidad fitness y descubre tu máximo potencial!
         </p>
         <div className="row row-cols-1 row-cols-md-3 g-5 pt-5">
