@@ -18,10 +18,17 @@ console.log(process.env.FRONTEND_URL)
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true,  // Esto es necesario para enviar cookies o autenticación
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
 );
+
 
 // Middlewares
 app.use(morgan("dev"));
