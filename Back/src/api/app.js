@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || "https://bull-box.vercel.app"
+  process.env.FRONTEND_URL || "https://bull-box.netlify.app"
 ];
 console.log(process.env.FRONTEND_URL)
 
